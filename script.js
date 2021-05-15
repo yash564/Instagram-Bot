@@ -3,9 +3,10 @@ let fs=require("fs");
 const util=require('util');
 let userName="nopeu37";
 let password="nope@123";
-let search="gontsova_sasha";
+let search="creative_arts_121";
 
-// pallavi_artgallary
+
+
 (async function(){
     let browser=await puppeteer.launch({
         headless:false,
@@ -38,7 +39,7 @@ let search="gontsova_sasha";
         tab.waitForNavigation({waitUntil:"networkidle2"}),
     ]);
 
-    // await tab.click("._5f5mN.jIbKX._6VtSN.yZn4P");
+    await tab.click("._5f5mN.jIbKX._6VtSN.yZn4P");
     let element=await tab.evaluate(()=>{
         let ele=Number(document.querySelector(".g47SY").textContent);
         return ele;
@@ -153,16 +154,10 @@ let search="gontsova_sasha";
         a[a.length-1].click();
     });
     
-    // await tab.waitForSelector(".eLAPa",{visible:true});
+    await tab.waitForSelector(".eLAPa",{visible:true});
     let taggedCount=await tab.evaluate(()=>{
-        let h=document.querySelector("._2z6nI").textContent;
-        if(h=="No Photos"){
-            return 0;
-        }
-        if(h==""){
-            let b=document.querySelectorAll(".eLAPa");
-            return b.length;
-        }
+        let b=document.querySelectorAll(".eLAPa");
+        return b.length;
     });
  
     let diff1=followersArray.filter(x => !followingArray.includes(x));
